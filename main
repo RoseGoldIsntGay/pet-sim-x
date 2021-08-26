@@ -50,7 +50,7 @@ text1.TextColor3 = Color3.new(1,1,1)
 text1.ZIndex = 1
 text1.Draggable = false
 text1.Active = true
-text1.Text = "Pet Sim X v1.5"
+text1.Text = "Pet Sim X v1.5.1"
 
 local kill = Instance.new("TextButton", frame1)
 kill.Size = UDim2.fromOffset(20,20)
