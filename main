@@ -289,6 +289,7 @@ end
 local function farmChest()
     for i,v in pairs(game:GetService("Workspace")["__THINGS"].Coins:GetChildren()) do
         if v.Coin.MeshId == "rbxassetid://7198029495" and v.Coin.TextureID == "rbxassetid://7316486707" then
+            print("found chest")
             if not init then
                 init = true
                 root.CFrame = v.Coin.CFrame + Vector3.new((math.floor(math.random()*100)/100)*10-5,10,(math.floor(math.random()*100)/100)*10-5)
@@ -296,6 +297,9 @@ local function farmChest()
             chest = v
             break
         end
+    end
+    if not chest then
+        return
     end
     coinName = chest.Name
     petName = string.sub(player.Name,0,6)
@@ -327,7 +331,7 @@ end
 
 chestDetect = game:GetService("Workspace")["__THINGS"].Coins.ChildAdded:connect(function(child)
     wait()
-    if auto and child.Coin.MeshId == "rbxassetid://7198029495" and child.Coin.TextureID == "rbxassetid://7259998485" then
+    if auto and child.Coin.MeshId == "rbxassetid://7198029495" and child.Coin.TextureID == "rbxassetid://7316486707" then
         if startingChestTime ~= 0 then
             chestTimer = os.time() - startingChestTime
         end
