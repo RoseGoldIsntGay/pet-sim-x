@@ -53,7 +53,7 @@ text1.TextColor3 = Color3.new(1,1,1)
 text1.ZIndex = 1
 text1.Draggable = false
 text1.Active = true
-text1.Text = "Pet Sim X v1.6.2"
+text1.Text = "Pet Sim X v1.6.3"
 
 local kill = Instance.new("TextButton", frame1)
 kill.Size = UDim2.fromOffset(20,20)
@@ -334,7 +334,7 @@ end
 
 chestDetect = game:GetService("Workspace")["__THINGS"].Coins.ChildAdded:connect(function(child)
     wait()
-    if auto and child.Coin.MeshId == eshId and child.Coin.TextureID == textureID then
+    if auto and child.Coin.MeshId == meshId and child.Coin.TextureID == textureID then
         if startingChestTime ~= 0 then
             chestTimer = os.time() - startingChestTime
         end
