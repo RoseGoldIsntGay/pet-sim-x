@@ -14,7 +14,7 @@ local workingOnPets = false
 local savediamonds = 0
 local eggString = "Golden Hell Egg"
 
-local meshID = "rbxassetid://7332364198"
+local meshId = "rbxassetid://7332364198"
 local textureID = "rbxassetid://7332367267"
 
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do 
@@ -53,7 +53,7 @@ text1.TextColor3 = Color3.new(1,1,1)
 text1.ZIndex = 1
 text1.Draggable = false
 text1.Active = true
-text1.Text = "Pet Sim X v1.6.3"
+text1.Text = "Pet Sim X v1.6.4"
 
 local kill = Instance.new("TextButton", frame1)
 kill.Size = UDim2.fromOffset(20,20)
@@ -291,7 +291,7 @@ end
 
 local function farmChest()
     for i,v in pairs(game:GetService("Workspace")["__THINGS"].Coins:GetChildren()) do
-        if v.Coin.MeshId == meshID and v.Coin.TextureID == textureID then
+        if v.Coin.MeshId == meshId and v.Coin.TextureID == textureID then
             print("found chest")
             if not init then
                 init = true
