@@ -12,7 +12,7 @@ local mouse = player:GetMouse()
 local chest = nil
 local workingOnPets = false
 local savediamonds = 0
-local eggString = "Golden Hell Egg"
+local eggString = "Golden Empyrean Egg"
 
 local meshId = "rbxassetid://7332364198"
 local textureID = "rbxassetid://7332367267"
@@ -35,7 +35,7 @@ startingChestTime = 0
 local ui = Instance.new("ScreenGui", game:GetService("CoreGui"))
 
 local frame1 = Instance.new("Frame", ui)
-frame1.Size = UDim2.fromOffset(200, 180)
+frame1.Size = UDim2.fromOffset(250, 180)
 frame1.Position = UDim2.new(0.5, -100, 0.68, 0)
 frame1.BorderSizePixel = 1
 frame1.BackgroundTransparency = .5
@@ -53,7 +53,7 @@ text1.TextColor3 = Color3.new(1,1,1)
 text1.ZIndex = 1
 text1.Draggable = false
 text1.Active = true
-text1.Text = "Pet Sim X v1.6.4"
+text1.Text = "Pet Sim X v1.6.6"
 
 local kill = Instance.new("TextButton", frame1)
 kill.Size = UDim2.fromOffset(20,20)
@@ -82,27 +82,33 @@ farm.Text = 'Farming: OFF'
 
 local openGold = farm:Clone()
 openGold.Parent = frame1
-openGold.Size = UDim2.fromOffset(frame1.Size.X.Offset/4, 20)
+openGold.Size = UDim2.fromOffset(frame1.Size.X.Offset/5, 20)
 openGold.Position = UDim2.new(0,0,0,40)
 openGold.Text = '🥇 Gold'
 
 local openFuse = farm:Clone()
 openFuse.Parent = frame1
-openFuse.Size = UDim2.fromOffset(frame1.Size.X.Offset/4, 20)
+openFuse.Size = UDim2.fromOffset(frame1.Size.X.Offset/5, 20)
 openFuse.Position = UDim2.new(0,50,0,40)
 openFuse.Text = '✨ Fuse'
 
 local openRainbow = farm:Clone()
 openRainbow.Parent = frame1
-openRainbow.Size = UDim2.fromOffset(frame1.Size.X.Offset/4, 20)
+openRainbow.Size = UDim2.fromOffset(frame1.Size.X.Offset/5, 20)
 openRainbow.Position = UDim2.new(0,100,0,40)
 openRainbow.Text = 'Rainbow'
 
 local openEnchant = farm:Clone()
 openEnchant.Parent = frame1
-openEnchant.Size = UDim2.fromOffset(frame1.Size.X.Offset/4, 20)
+openEnchant.Size = UDim2.fromOffset(frame1.Size.X.Offset/5, 20)
 openEnchant.Position = UDim2.new(0,150,0,40)
 openEnchant.Text = '📚 Ench'
+
+local openCollection = farm:Clone()
+openCollection.Parent = frame1
+openCollection.Size = UDim2.fromOffset(frame1.Size.X.Offset/5, 20)
+openCollection.Position = UDim2.new(0,200,0,40)
+openCollection.Text = '📦Collect'
 
 local autoOpenEgg = farm:Clone()
 autoOpenEgg.Parent = frame1
@@ -113,7 +119,7 @@ local openEgg = farm:Clone()
 openEgg.Parent = frame1
 openEgg.Size = UDim2.fromOffset(frame1.Size.X.Offset/2, 20)
 openEgg.Position = UDim2.new(0,0,0,80)
-openEgg.Text = "Gold Hell Egg"
+openEgg.Text = "Gold Empyrean Egg"
 
 local forceOpenEgg = farm:Clone()
 forceOpenEgg.Parent = frame1
@@ -151,7 +157,7 @@ timerView.Text = "0"
 local timerView2 = text1:Clone()
 timerView2.Parent = frame1
 timerView2.Size = UDim2.fromOffset(frame1.Size.X.Offset/2, 20)
-timerView2.Position = UDim2.new(0,100,0,160)
+timerView2.Position = UDim2.new(0,125,0,160)
 timerView2.BackgroundTransparency = .2
 timerView2.Text = "0"
 
@@ -170,7 +176,7 @@ mphView.Text = "0"
 local dphView = timerView:Clone()
 dphView.Parent = frame1
 dphView.Size = UDim2.fromOffset(frame1.Size.X.Offset/2, 20)
-dphView.Position = UDim2.new(0,100,0,140)
+dphView.Position = UDim2.new(0,125,0,140)
 dphView.Text = "0"
 
 local moneyIcon = Instance.new("ImageLabel", frame1)
@@ -182,13 +188,13 @@ moneyIcon.BackgroundTransparency = 1
 
 local moneyIcon2 = moneyIcon:Clone()
 moneyIcon2.Parent = frame1
-moneyIcon2.Position = UDim2.new(0,50,0,120)
+moneyIcon2.Position = UDim2.new(0,65,0,120)
 
 local diamondIcon = Instance.new("ImageLabel", frame1)
 diamondIcon.Image = "rbxassetid://6866696180"
 diamondIcon.ZIndex = 5
 diamondIcon.Size = UDim2.new(0,20,0,20)
-diamondIcon.Position = UDim2.new(0,90,0,140)
+diamondIcon.Position = UDim2.new(0,125,0,140)
 diamondIcon.BackgroundTransparency = 1
 
 local function log2(message, hook)
@@ -432,6 +438,14 @@ openEnchant.MouseButton1Click:connect(function()
         player.PlayerGui.EnchantPets.Enabled = false
     else
         player.PlayerGui.EnchantPets.Enabled = true
+    end
+end)
+
+openCollection.MouseButton1Click:connect(function()
+    if player.PlayerGui.Collection.Enabled then
+        player.PlayerGui.Collection.Enabled = false
+    else
+        player.PlayerGui.Collection.Enabled = true
     end
 end)
 
